@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>mini3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            /* border: 7px solid black;
+            box-shadow: 5px 5px 10px gray; */
+            font-family: 'Inter', sans-serif;
+            margin: 0 auto;
+            width: 1366px;
+        }
+
+        header {
+            padding: 0 80px 90px 30px
+        }
+
+        #logo {
+            float: left;
+            margin: 30px 0 25px 0;
+        }
+
+        #logo img {
+            width: 180px;
+            height: auto;
+        }
+
+        #nav-menu {
+            float: left;
+            margin-top: 33px;
+            margin-left: 60px;
+            font-weight: 800;
+        }
+
+        #nav-menu a {
+            color: #0D3565;
+            margin: 15px 12px 15px 12px;
+            text-decoration: none;
+        }
+
+        #nav-account {
+            float: right;
+        }
+
+        #nav-account a {
+            color: #636363;
+            font-weight: 500;
+            margin: 0px 12px 15px 12px;
+            text-decoration: none;
+        }
+
+        .green-button {
+            background-color: #2D9440;
+            border-style: none;
+            color: white;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 15px 5px 15px 5px;
+            padding: 15px 30px 15px 30px;
+        }
+
+        #blue-area {
+            background-color: #0D3565;
+            color: #EEEEEE;
+            font-size: 20px;
+            margin-right: 7px;
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 70px;
+        }
+
+        #blue-area p {
+            line-height: 2;
+            margin: 25px auto 25px;
+        }
+
+        #tagline {
+            color: white;
+            margin: 0;
+            font-size: 45px;
+            font-weight: 800;
+        }
+
+        #white-area {
+            background-color: white;
+            color: #636363;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #white-area div {
+            display: inline-block;
+            margin: 70px 40px 30px 40px;
+        }
+
+        .stats-icon {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            color: black;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        #white-area div p {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="mini3.html"><img src="logo.png"></a>
+        </div>
+        <nav id="nav-menu">
+            <a href="https://www.merriam-webster.com/dictionary/platform" target="_blank">Platform</a>
+            <a href="https://www.merriam-webster.com/dictionary/plan" target="_blank">Plans</a>
+            <a href="https://www.merriam-webster.com/dictionary/enterprise" target="_blank">Enterprise</a>
+            <a href="https://www.merriam-webster.com/dictionary/resource" target="_blank">Resources</a>
+            <a href="https://www.merriam-webster.com/dictionary/education" target="_blank">Education</a>
+        </nav>
+        <nav id="nav-account">
+            <a href="https://www.w3schools.com/howto/howto_css_contact_section.asp" target="_blank">Contact Us</a>
+            <a href="https://www.w3schools.com/howto/howto_css_login_form.asp" target="_blank">Log In</a>
+            <button id="colourButton" class="green-button">Change Colour</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="blue-area">
+            <h1 id="tagline">See value from social sooner</h1>
+            <p>Our training and strategic services have helped<br>
+            thousands of organizations succeed on social.</p>
+            <button id="demoButton" class="green-button">Request a Demo</button>
+        </section>
+        <section id="white-area">
+            <div>
+                <img class="stats-icon" src="rocket-lunch.png"><br>
+                <span class="stats">2,500</span>
+                <p>enterprise organizations successfully launched</p>
+            </div>
+            <div>
+                <img class="stats-icon" src="browser.png"><br>
+                <span class="stats">45,000</span>
+                <p>enterprise users onboarded seamlessly</p>
+            </div>
+            <div>
+                <img class="stats-icon" src="chart-user.png"><br>
+                <span class="stats">200,000+</span>
+                <p>professionals trained on product and strategy</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const colourButton = document.getElementById("colourButton");
+        const demoButton = document.getElementById("demoButton");
+        var isBlue = true;
+
+        colourButton.addEventListener("click", function() {
+            const blueimgs = [];
+            const yellowimgs = [];
+            const navMenuLinks = document.getElementById("nav-menu").querySelectorAll("a");
+            const blueArea = document.getElementById("blue-area");
+            const icons = document.getElementsByClassName("stats-icon");
+            if (isBlue) {
+                for (let i=0; i<navMenuLinks.length; i++) {
+                    navMenuLinks[i].style.color = "#EBBA27";
+                }
+                blueArea.style.backgroundColor = "#EBBA27";
+                icons[0].src = "rocket-lunch_yellow.png";
+                icons[1].src = "browser_yellow.png";
+                icons[2].src = "chart-user_yellow.png";
+                isBlue= false;
+            }
+            else {
+                for (let i=0; i<navMenuLinks.length; i++) {
+                    navMenuLinks[i].style.color = "#0D3565";
+                }
+                blueArea.style.backgroundColor = "#0D3565";
+                icons[0].src = "rocket-lunch.png";
+                icons[1].src = "browser.png";
+                icons[2].src = "chart-user.png";
+                isBlue = true;
+            }
+        });
+
+        demoButton.addEventListener("click", function() {
+            window.open("https://www.w3schools.com/js/tryit.asp?filename=tryjs_intro_inner_html", "_blank");
+        });
+    </script>
+</body>
+</html>
